@@ -1,17 +1,18 @@
 package com.me.mygdxgame.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Screen; 
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.IsometricTiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 public class GameScreen implements Screen {
 
 	private TiledMap map;
-	private IsometricTiledMapRenderer renderer;
+	private OrthogonalTiledMapRenderer renderer;
 	private OrthographicCamera camera;
 	
 	@Override
@@ -37,9 +38,11 @@ public class GameScreen implements Screen {
 
 		TmxMapLoader loader = new TmxMapLoader();
 
-		map = loader.load("maps/isometric.tmx");
-		renderer = new IsometricTiledMapRenderer(map);
+		map = loader.load("maps/map.tmx");
+		float unitScale = 2f;
+		renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 		camera = new OrthographicCamera();
+		camera.translate(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
 	}
 
 	@Override
