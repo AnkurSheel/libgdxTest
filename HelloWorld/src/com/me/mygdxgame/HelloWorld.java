@@ -7,19 +7,24 @@ import com.badlogic.gdx.graphics.GL20;
 
 public class HelloWorld implements ApplicationListener {
 
-	private static final String LOG = HelloWorld.class.getSimpleName();
+	private static final String LOG = HelloWorld.class.getName().substring(HelloWorld.class.getName().lastIndexOf(".")+1);
 		
 	private FPSLogger fpsLogger;
 	
 	@Override
-	public void create() {		
+	public void create() {
+		int width = (int)(Gdx.graphics.getDesktopDisplayMode().width * 0.85f);
+		int height = (int)(Gdx.graphics.getDesktopDisplayMode().height * 0.85f);
 		
+		Gdx.graphics.setDisplayMode(width, height, false);
 		Gdx.app.log(HelloWorld.LOG, "Creating game" );
         fpsLogger = new FPSLogger();
 	}
 
 	@Override
 	public void dispose() {
+		
+		Gdx.app.log(HelloWorld.LOG, "Destroying game" );
 	}
 
 	@Override
