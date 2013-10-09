@@ -7,14 +7,16 @@ import com.me.mygdxgame.screens.GameScreen;
 
 public class HelloWorld extends Game {
 
-	private static final String LOG = HelloWorld.class.getName().substring(HelloWorld.class.getName().lastIndexOf(".")+1);
-		
+	public static final String LOG = HelloWorld.class.getName().substring(HelloWorld.class.getName().lastIndexOf(".")+1);
+	public static int width = 800;
+	public static int height = 600;
+	
 	private FPSLogger fpsLogger;
 	
 	@Override
 	public void create() {
-		int width = (int)(Gdx.graphics.getDesktopDisplayMode().width * 0.85f);
-		int height = (int)(Gdx.graphics.getDesktopDisplayMode().height * 0.85f);
+		width = (int)(Gdx.graphics.getDesktopDisplayMode().width * 0.85f);
+		height = (int)(Gdx.graphics.getDesktopDisplayMode().height * 0.85f);
 		
 		Gdx.graphics.setDisplayMode(width, height, false);
 		Gdx.app.log(HelloWorld.LOG, "Creating game" );
