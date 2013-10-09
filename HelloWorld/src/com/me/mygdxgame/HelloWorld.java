@@ -7,20 +7,20 @@ import com.me.mygdxgame.screens.GameScreen;
 
 public class HelloWorld extends Game {
 
-	public static final String LOG = HelloWorld.class.getName().substring(HelloWorld.class.getName().lastIndexOf(".")+1);
-	public static int width = 800;
-	public static int height = 600;
+	public static final String sLOG = HelloWorld.class.getName().substring(HelloWorld.class.getName().lastIndexOf(".")+1);
+	public static int msWidth = 800;
+	public static int msHeight = 600;
 	
-	private FPSLogger fpsLogger;
+	private FPSLogger mFpsLogger;
 	
 	@Override
 	public void create() {
-		width = (int)(Gdx.graphics.getDesktopDisplayMode().width * 0.85f);
-		height = (int)(Gdx.graphics.getDesktopDisplayMode().height * 0.85f);
+		msWidth = (int)(Gdx.graphics.getDesktopDisplayMode().width * 0.85f);
+		msHeight = (int)(Gdx.graphics.getDesktopDisplayMode().height * 0.85f);
 		
-		Gdx.graphics.setDisplayMode(width, height, false);
-		Gdx.app.log(HelloWorld.LOG, "Creating game" );
-        fpsLogger = new FPSLogger();
+		Gdx.graphics.setDisplayMode(msWidth, msHeight, false);
+		Gdx.app.log(HelloWorld.sLOG, "Creating game" );
+        mFpsLogger = new FPSLogger();
         
         setScreen(new GameScreen());
         
@@ -28,13 +28,13 @@ public class HelloWorld extends Game {
 
 	@Override
 	public void dispose() {
-		Gdx.app.log(HelloWorld.LOG, "Destroying game" );
+		Gdx.app.log(HelloWorld.sLOG, "Destroying game" );
 		super.dispose();
 	}
 
 	@Override
 	public void render() {		
-		fpsLogger.log();
+		mFpsLogger.log();
 		
 		super.render();
 	}
@@ -42,20 +42,20 @@ public class HelloWorld extends Game {
 	@Override
 	public void resize(int width, int height) {
 		
-		Gdx.app.log(HelloWorld.LOG, "Resizing game to: " + width + " x " + height );
+		Gdx.app.log(HelloWorld.sLOG, "Resizing game to: " + width + " x " + height );
 		super.resize(width, height);
 	}
 
 	@Override
 	public void pause() {
 
-		Gdx.app.log(HelloWorld.LOG, "Pausing game" );
+		Gdx.app.log(HelloWorld.sLOG, "Pausing game" );
 		super.pause();
 	}
 
 	@Override
 	public void resume() {
-		Gdx.app.log(HelloWorld.LOG, "Resuming game" );
+		Gdx.app.log(HelloWorld.sLOG, "Resuming game" );
 		super.resume();
 	}
 }
