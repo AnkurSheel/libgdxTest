@@ -28,3 +28,5 @@ gwt-unitCache/
 # more caches and things from deploy #
 war/WEB-INF/deploy/
 war/WEB-INF/classes/
+HelloWorld-html/war/assets/Tiles
+HelloWorld-html/war/WEB-INF/deploy/com.me.mygdxgame.GwtDefinition/symbolMaps/
